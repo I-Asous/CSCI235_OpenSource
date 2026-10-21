@@ -4,7 +4,7 @@
 - **Semester:** Fall 2026
 - **Role:** Maintainer · Undergraduate Teaching Assistant, Hunter College CS
 - **Contributions:** Created h235: the core ADTs, test framework, CI pipeline, and Git labs
-- **Links:** [islamasous.dev](https://islamasous.dev) · [LinkedIn](https://linkedin.com/in/islam-asous)
+- **Links:** [islamasous.dev](https://islamasous.dev)
 
 CS major (Math minor) at Hunter College, graduating December 2026. I've been a TA since 2025 for Computer Architecture I & II, Computer Theory, and OOP/Data Structures & Algorithms, and I built this project so 235 students can practice the Git workflow real teams use.
 

@@ -22,7 +22,7 @@ int index = h235::binarySearch(v, 5);   // 2
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------- |
 | ADTs                                                                   | `ArrayBag`, `LinkedBag`, `LinkedStack`, `LinkedQueue`, `LinkedList` | provided                                             |
 | Searching                                                              | `binarySearch` (worked example)                                             | provided                                             |
-| Recursion, sorting, searching, stacks, queues, linked lists, more ADTs | ~45 open tasks                                                                | 🙋 [built by students: see open issues](../../issues) |
+| Recursion, sorting, searching, stacks, queues, linked lists, more ADTs | ~45 open tasks                                                                | [built by students: see open issues](../../issues) |
 
 ## Quick start
 

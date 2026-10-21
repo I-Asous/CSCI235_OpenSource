@@ -77,7 +77,7 @@ TEST_CASE("insertionSort: sorts a reversed vector") {
 Write the subject in the imperative, as if completing the sentence "This commit will…":
 
 ```
-Add merge sort with stability test        ✅
+Add merge sort with stability test         ✅
 Fix off-by-one in LinkedList::insert       ✅
 updated stuff                              ❌
 final version for real                     ❌

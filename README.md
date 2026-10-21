@@ -5,6 +5,9 @@
 
 Every line of code got in the way it does at a software company. A student forked the repo, wrote the code on a branch, added tests, and opened a pull request. Automated tests (CI) checked it, and a classmate and an instructor reviewed it before it was merged.
 
+> **CSCI 235 students: start here →** [Lab 0: Setup](docs/labs/00-setup.md).
+> Do the labs in order. Don't clone yet; [Lab 1](docs/labs/01-fork-and-clone.md) shows you how to fork first.
+
 ```cpp
 #include "h235/LinkedStack.hpp"
 #include "h235/algorithms/binary_search.hpp"
@@ -26,10 +29,10 @@ int index = h235::binarySearch(v, 5);   // 2
 
 ## Quick start
 
-You need `git`, `make`, and a C++17 compiler (`g++` or `clang++`).
+Just want to try the library? You need `git`, `make`, and a C++17 compiler (`g++` or `clang++`). Students: follow the [labs](#contributing) instead.
 
 ```bash
-git clone https://github.com/<your-username>/CSCI235.git
+git clone https://github.com/I-Asous/CSCI235.git
 cd CSCI235
 make test                 # build and run all tests
 make test ONLY=Stack      # run only tests whose name contains "Stack"

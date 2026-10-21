@@ -29,32 +29,7 @@ How to run this project with a class. Students don't need to read this.
    ./scripts/seed_issues.sh I-Asous/CSCI235
    ```
    This creates labels plus about 45 issues from [`scripts/issues.tsv`](../scripts/issues.tsv). Add rows to scale up to your class size; re-running skips existing issues.
-
-## Suggested schedule
-
-| Week | Lab | Deliverable |
-|---|---|---|
-| 1 | 0 + 1 | Screenshot of `git remote -v` and passing `make test` |
-| 2 | 2 | Merged contributor-file PR |
-| 3 | 3 | Screenshot of `git log --graph` showing the resolved merge |
-| 4–7 | 4 | Claimed issue → merged PR with tests (time it to the matching lecture unit) |
-| 4–7 | 5 | Two submitted reviews on classmates' PRs |
-| 8 | 6 | Exercise completed (honor system, or a reflog screenshot) |
-
-## Grading ideas
-
-Everything is visible on GitHub, so grade from the artifacts:
-
-- `gh pr list --repo I-Asous/CSCI235 --state merged --author <student>`
-- `gh api repos/I-Asous/CSCI235/pulls/<n>/reviews` to see who reviewed what
-- Lab 4 rubric: tests cover edge cases · code is correct and leak-free · commit history is meaningful · review feedback was addressed
-
-## Running the class
-
-- **Assigning issues:** assign on the first "I'd like to work on this" comment. Unassign after a week of inactivity.
-- **Stuck PRs:** a red CI check is the student's job to fix. Point them at the Details log before debugging for them.
-- **Duplicate work:** close it kindly with a link to the earlier PR, and offer an unclaimed issue.
-- **Merge cadence:** merge in batches (for example twice a week) so students regularly see upstream move and practice syncing.
+   
 
 ## Each new semester
 

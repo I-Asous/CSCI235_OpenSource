@@ -67,7 +67,7 @@ The [binary search example](../blob/main/include/h235/algorithms/binary_search.h
 
 ## Definition of done
 
-- [ ] Code lives in \`namespace h235\` and has a short comment explaining what it does and returns
+- [ ] Code lives in \`namespace h235\` and has a \`/** @brief ... */\` comment with \`@param\`, \`@return\` and \`@throws\` as needed
 - [ ] At least 3 \`TEST_CASE\`s: the normal case, edge cases (empty, one element, ...), and error cases if any
 - [ ] \`make test\` passes locally and CI is green ✅
 - [ ] No memory leaks (CI runs with sanitizers)

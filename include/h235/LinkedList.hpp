@@ -8,12 +8,24 @@
 
 namespace h235 {
 
-/// A positional list backed by a chain of nodes. Positions are 1-based, as in the textbook.
+/**
+ * @brief A positional list backed by a chain of nodes.
+ * @tparam T The type of item stored in the list.
+ *
+ * @note Positions are 1-based, as in the textbook.
+ */
 template <class T>
 class LinkedList {
 public:
+    /**
+     * @brief Creates an empty list.
+     */
     LinkedList() = default;
 
+    /**
+     * @brief Creates a deep copy of another list.
+     * @param other The list to copy.
+     */
     LinkedList(const LinkedList& other) {
         int position = 1;
         for (Node<T>* cur = other.head_; cur != nullptr; cur = cur->getNext()) {
@@ -21,19 +33,40 @@ public:
         }
     }
 
+    /**
+     * @brief Replaces this list's contents with a copy of another list.
+     * @param other The list to copy, taken by value (copy-and-swap).
+     * @return A reference to this list.
+     */
     LinkedList& operator=(LinkedList other) {
         std::swap(head_, other.head_);
         std::swap(length_, other.length_);
         return *this;
     }
 
+    /**
+     * @brief Deletes every node in the chain.
+     */
     ~LinkedList() { clear(); }
 
+    /**
+     * @brief Checks whether the list holds no entries.
+     * @return True if the list is empty, false otherwise.
+     */
     bool isEmpty() const { return length_ == 0; }
+
+    /**
+     * @brief Gets the number of entries in the list.
+     * @return The length of the list.
+     */
     int getLength() const { return length_; }
 
-    /// Inserts newEntry so that it ends up at newPosition (1 <= newPosition <= length + 1).
-    /// Returns false if the position is out of range.
+    /**
+     * @brief Inserts an entry so that it ends up at the given position.
+     * @param newPosition The position for the new entry (1 <= newPosition <= length + 1).
+     * @param newEntry The item to insert.
+     * @return True if the entry was inserted, false if the position is out of range.
+     */
     bool insert(int newPosition, const T& newEntry) {
         if (newPosition < 1 || newPosition > length_ + 1) {
             return false;
@@ -48,7 +81,11 @@ public:
         return true;
     }
 
-    /// Removes the entry at position. Returns false if the position is out of range.
+    /**
+     * @brief Removes the entry at the given position.
+     * @param position The position of the entry to remove (1 <= position <= length).
+     * @return True if the entry was removed, false if the position is out of range.
+     */
     bool remove(int position) {
         if (position < 1 || position > length_) {
             return false;
@@ -67,23 +104,40 @@ public:
         return true;
     }
 
+    /**
+     * @brief Removes every entry from the list and deletes all nodes.
+     */
     void clear() {
         while (remove(1)) {
         }
     }
 
-    /// Throws std::out_of_range if position is not in [1, length].
+    /**
+     * @brief Gets the entry at the given position.
+     * @param position The position of the entry (1 <= position <= length).
+     * @return A const reference to the entry at position.
+     * @throws std::out_of_range If position is not in [1, length].
+     */
     const T& getEntry(int position) const {
         checkPosition(position);
         return getNodeAt(position)->getItem();
     }
 
-    /// Throws std::out_of_range if position is not in [1, length].
+    /**
+     * @brief Replaces the entry at the given position.
+     * @param position The position of the entry to replace (1 <= position <= length).
+     * @param newEntry The item to store at position.
+     * @throws std::out_of_range If position is not in [1, length].
+     */
     void replace(int position, const T& newEntry) {
         checkPosition(position);
         getNodeAt(position)->setItem(newEntry);
     }
 
+    /**
+     * @brief Copies every entry in the list into a vector.
+     * @return A vector holding all entries, in list order.
+     */
     std::vector<T> toVector() const {
         std::vector<T> result;
         result.reserve(length_);
@@ -94,12 +148,25 @@ public:
     }
 
 private:
+    /**
+     * @brief Verifies that a position refers to an existing entry.
+     * @param position The position to check.
+     * @throws std::out_of_range If position is not in [1, length].
+     */
     void checkPosition(int position) const {
         if (position < 1 || position > length_) {
             throw std::out_of_range("LinkedList position out of range");
         }
     }
 
+    /**
+     * @brief Walks the chain to the node at the given position.
+     * @param position The position of the node (1 <= position <= length).
+     * @return A pointer to the node at position.
+     *
+     * @note This helper does not check the range. Callers must
+     * validate position before calling it.
+     */
     Node<T>* getNodeAt(int position) const {
         Node<T>* cur = head_;
         for (int i = 1; i < position; ++i) {

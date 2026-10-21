@@ -40,7 +40,17 @@ clone  │  push
 - Headers start with `#pragma once`.
 - **Mark non-template functions defined in a header as `inline`.** Otherwise each `.cpp` that includes the header gets its own copy and the linker fails with "duplicate symbol". Templates don't need it.
 - Classes that own heap memory follow the **Rule of Three**: copy constructor, copy assignment, and destructor.
-- Put a short comment above each public function saying what it does, what it returns, and what it throws.
+- Put a Doxygen-style block comment above every class and function. Use `@brief` for what it does, then `@param`, `@return` and `@throws` as they apply. Add `@note` for anything the caller must know (preconditions, side effects, which wrapper to call). For example:
+
+  ```cpp
+  /**
+   * @brief Removes the entry at the given position.
+   * @param position The position of the entry to remove (1 <= position <= length).
+   * @return True if the entry was removed, false if the position is out of range.
+   *
+   * @note Positions are 1-based, as in the textbook.
+   */
+  ```
 - Copy the style of [`binary_search.hpp`](include/h235/algorithms/binary_search.hpp) and [`test_binary_search.cpp`](tests/algorithms/test_binary_search.cpp).
 
 ## Writing tests
